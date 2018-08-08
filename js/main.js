@@ -61,7 +61,7 @@ const words = [
 ];
 
 //settig bestScore
-bestscore.innerHTML = localStorage.getItem("bestscore") || 0;
+bestscore.innerHTML = localStorage.getItem("bestScore") || 0;
 //listener for change level
 chooseLevel.addEventListener("change", changeLevel);
 //when pressed game start
