@@ -1,3 +1,5 @@
+//I've added jQuery just for Bootstrap modals
+
 //Globals var
 const levels = {
   easy: 5,
@@ -58,21 +60,29 @@ const words = [
   "definition"
 ];
 
+//settig bestScore = 0
 localStorage.setItem("bestScore", 0);
+//listener for change level
 chooseLevel.addEventListener("change", changeLevel);
+//when pressed game start
 startGameBtn.addEventListener("click", init);
+//when press game stop
 stopGameBtn.addEventListener("click", stopGame);
 
-//Initialize Game
+
 function changeLevel() {
-  //update
+  //update values
   currentLevel = levels[chooseLevel.value];
   seconds.innerHTML = currentLevel;
   time = currentLevel;
 }
+//Initialize Game
 function init() {
+
   message.innerHTML = "";
+  //assign time 
   time = currentLevel;
+  //game is started
   stopped = false;
   //hide start Btn
   startGameBtn.classList.add("d-none");
@@ -82,6 +92,7 @@ function init() {
   chooseLevel.disabled = true;
   //initialize seconds
   seconds.innerHTML = currentLevel;
+  //show a random word
   showWord(words);
   //Start matching on word input
   wordInput.addEventListener("input", startMatch);
@@ -107,7 +118,7 @@ function startMatch() {
 
 function matchWords() {
   if (wordInput.value === currentWord.innerHTML) {
-    message.textContent = "Correct";
+    message.innerHTML = "Correct";
     message.style.color = "green";
     return true;
   } else {
