@@ -13,4 +13,4 @@ Franco Marino, Italian Developer
 # Features
 I if you want to add functionality or correct any bugs, contact me or create your repository.
 
-##I hope you enjoy it!
+## I hope you enjoy it!
