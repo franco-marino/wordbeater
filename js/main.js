@@ -61,7 +61,7 @@ const words = [
 ];
 
 //settig bestScore = 0
-localStorage.setItem("bestScore", 0);
+//localStorage.setItem("bestScore", 0);
 //listener for change level
 chooseLevel.addEventListener("change", changeLevel);
 //when pressed game start
@@ -142,9 +142,11 @@ function countDown() {
       //Register score in table
       addNewScore(score);
       //Register score in local storage if is the best
-      if (score > localStorage.getItem("bestScore")) {
-        newBestScore();
-      }
+      if (localStorage.getItem("bestScore") != "") {
+        if (score > localStorage.getItem("bestScore")) {
+          newBestScore();
+        }
+      } else newBestScore();
       $(stopGameBtn).trigger("click");
       message.innerHTML = "";
       // Game is over
