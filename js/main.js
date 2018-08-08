@@ -142,11 +142,10 @@ function countDown() {
       //Register score in table
       addNewScore(score);
       //Register score in local storage if is the best
-      if (localStorage.getItem("bestScore") != "") {
-        if (score > localStorage.getItem("bestScore")) {
-          newBestScore();
-        }
-      } else newBestScore();
+
+      if (score > localStorage.getItem("bestScore")) {
+        newBestScore();
+      }
       $(stopGameBtn).trigger("click");
       message.innerHTML = "";
       // Game is over
