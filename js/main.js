@@ -60,15 +60,14 @@ const words = [
   "definition"
 ];
 
-//settig bestScore = 0
-//localStorage.setItem("bestScore", 0);
+//settig bestScore
+bestscore.innerHTML = localStorage.getItem("bestscore") || 0;
 //listener for change level
 chooseLevel.addEventListener("change", changeLevel);
 //when pressed game start
 startGameBtn.addEventListener("click", init);
 //when press game stop
 stopGameBtn.addEventListener("click", stopGame);
-
 
 function changeLevel() {
   //update values
@@ -78,9 +77,8 @@ function changeLevel() {
 }
 //Initialize Game
 function init() {
-
   message.innerHTML = "";
-  //assign time 
+  //assign time
   time = currentLevel;
   //game is started
   stopped = false;
