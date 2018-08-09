@@ -4,7 +4,7 @@ This is my modification to the Brad Traversy project - https://github.com/bradtr
 * button to start and stop the game
 * the choice of difficulty what changes the time available to write each word
 * recording the scores for each game and the best score
-# Use
+# Usage
 Original game -  [Try it](https://bradtraversy.github.io/wordbeater) 
 
 My version - [Try it](https://franco-marino.github.io/wordbeater)
