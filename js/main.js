@@ -9,7 +9,6 @@ const levels = {
 
 //default is easy
 let currentLevel = levels[localStorage.getItem('defaultLevel')] || levels.easy;
-console.log(currentLevel);
 let time;
 let score = 0;
 let isPlaying;
