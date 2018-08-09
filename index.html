@@ -16,6 +16,19 @@
         #stopGameBtn {
             font-size: 2em;
         }
+
+        .icon-background {
+            color: #6c757d;
+        }
+
+        #startGameBtn,
+        #stopGameBtn {
+            cursor: pointer;
+        }
+
+        .icon-background2 {
+            color: #e42828;
+        }
     </style>
 </head>
 
@@ -33,23 +46,32 @@
                 <h2 class="display-2 mb-5" id="current-word">hello</h2>
                 <input type="text" class="form-control form-control-lg" placeholder="Start typing..." id="word-input" autofocus>
                 <h4 class="mt-3" id="message"></h4>
-                <button id="startGameBtn" class="btn btn-success text-white w-75">Start Game !</button>
-                <button id="stopGameBtn" class="btn btn-danger text-white w-75 d-none">Stop Game !</button>
+                <span class="fa-stack fa-2x" id="startGameBtn">
+                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                    <i class="fas fa-play fa-stack-1x"></i>
+                </span>
+                <span class="fa-stack fa-2x d-none" id="stopGameBtn">
+                    <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                    <i class="fas fa-stop fa-stack-1x"></i>
+                </span>
+
 
                 <!-- Time & Score Columns -->
                 <div class="row mt-5">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <h3>Time Left:
                             <span id="time">0</span>
                         </h3>
                     </div>
+                </div>
+                <div class="row mt-5">
                     <div class="col-md-6">
                         <h3>Score:
                             <span id="score">0</span>
                         </h3>
                     </div>
-                    <div class="col-md-12">
-                        <h3>Your Best Score:
+                    <div class="col-md-6">
+                        <h3>Your Best:
                             <span id="bestScore">0</span>
                         </h3>
                     </div>
