@@ -8,8 +8,8 @@ const levels = {
 };
 
 //default is easy
-let currentLevel = levels.easy;
-
+let currentLevel = levels[localStorage.getItem('defaultLevel')] || levels.easy;
+console.log(currentLevel);
 let time;
 let score = 0;
 let isPlaying;
@@ -68,12 +68,20 @@ chooseLevel.addEventListener("change", changeLevel);
 startGameBtn.addEventListener("click", init);
 //when press game stop
 stopGameBtn.addEventListener("click", stopGame);
+//when input starts
+wordInput.addEventListener('input', clearMessage);
+//initialize seconds
+seconds.innerHTML = currentLevel;
+//initialize level
+chooseLevel.value = localStorage.getItem('defaultLevel') || 'easy';
 
 function changeLevel() {
   //update values
   currentLevel = levels[chooseLevel.value];
   seconds.innerHTML = currentLevel;
   time = currentLevel;
+  //set in local storage
+  localStorage.setItem('defaultLevel', chooseLevel.value);
 }
 //Initialize Game
 function init() {
@@ -88,8 +96,6 @@ function init() {
   stopGameBtn.classList.remove("d-none");
   //disable choose level
   chooseLevel.disabled = true;
-  //initialize seconds
-  seconds.innerHTML = currentLevel;
   //show a random word
   showWord(words);
   //Start matching on word input
@@ -169,6 +175,8 @@ function stopGame() {
   stopGameBtn.classList.add("d-none");
   //show start btn
   startGameBtn.classList.remove("d-none");
+  //clear message
+  clearMessage();
   //enable choose level
   chooseLevel.disabled = false;
   //stopping all
@@ -210,4 +218,8 @@ function addNewScore(score) {
   td.appendChild(content);
   tr.appendChild(td);
   yourScoresTbody.prepend(tr);
+}
+
+function clearMessage() {
+  message.innerHTML = '';
 }
